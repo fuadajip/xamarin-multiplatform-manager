@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneySQLite.ManageTransasction">
+    <StackLayout>
+        <ListView x:Name="lstData" HasUnevenRows="false" Header="Header Value" Footer="Footer" ItemSelected="OnSelection" >
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Blue" Padding="5,5,5,5">
+                        <Label Text="Name" FontSize="Medium" FontAttributes="Bold" TextColor="White" HorizontalOptions="Start"/>
+                        <Label Text="Date" FontSize="Medium" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="Amount" FontSize="Medium" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5,5,5,5">
+                            <Label Text="{Binding TransName}" FontSize="Medium" HorizontalOptions="Start" />
+                            <Label Text="{Binding Date, StringFormat='{0:MMMM dd, yyyy}'}"  FontSize="Medium" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding Amount}" FontSize="Medium" HorizontalOptions="End" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.FooterTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Padding="5,5,5,5">
+                        <Button Text="Add New Transaction" Clicked="OnNewClicked" />
+
+                    </StackLayout>
+                </DataTemplate>
+
+            </ListView.FooterTemplate>
+        </ListView>
+
+        <StackLayout BackgroundColor="Blue" Padding="7,7,7,7">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Total" HorizontalOptions="Start" FontSize="Medium" TextColor="White" Grid.Row="0" Grid.Column="0" />
+                <Label Text="Angka Total" x:Name="txtTotal" HorizontalOptions="End" FontSize="Medium" TextColor="White"  Grid.Row="0" Grid.Column="1"/>
+
+            </Grid>
+
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

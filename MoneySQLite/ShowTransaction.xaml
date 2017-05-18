@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneySQLite.ShowTransaction">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row ="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Transaction Details" />
+            <Label Grid.Row ="1" Grid.Column="1" Text="Name" />
+            <Label Grid.Row="1" Grid.Column="2" Text ="{Binding TransName}" />
+            <Label Grid.Row ="2" Grid.Column="1" Text="Amount" />
+            <Label Grid.Row="2" Grid.Column="2" Text ="{Binding Amount}"/>
+            <Label Grid.Row ="3" Grid.Column="1" Text="Date" />
+            <Label Grid.Row="3" Grid.Column="2" Text ="{Binding Date , StringFormat='{0:MMMM dd, yyyy}'}"/>
+            <Label Grid.Row ="4" Grid.Column="1" Text="Desc" />
+            <Label Grid.Row="4" Grid.Column="2" Text ="{Binding Desc}" />
+            <Button Grid.Row ="5" Grid.Column="1" Text="Edit Details" Clicked="OnEditClicked" />
+            <Button Grid.Row="5" Grid.Column="2" Text="Delete" Clicked="OnDeleteClicked" />
+        </Grid>
+    </StackLayout>
+</ContentPage>
